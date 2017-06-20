@@ -7,7 +7,7 @@ The test class in the code demonstrates:
 * Spinning up a mock-instance of a spring-boot service
 * Returning a response from the service
 * Using the [Jackson ObjectMapper](https://fasterxml.github.io/jackson-databind/javadoc/2.7/com/fasterxml/jackson/databind/ObjectMapper.html) to map the response to a POJO.
-* And finally, using a hamcrest mapper with JUnit to assert against the response
+* And finally, using a hamcrest matcher with JUnit to assert against the response
 
 ```java
 
