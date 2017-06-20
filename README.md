@@ -10,25 +10,26 @@ The test class in the code demonstrates:
 * And finally, using a hamcrest mapper with JUnit to assert against the response
 
 ```java
+
 @Autowired
-	protected MockMvc mockMvc;
+protected MockMvc mockMvc;
 
-	@Autowired
-	protected ObjectMapper mapper;
+@Autowired
+protected ObjectMapper mapper;
 
-	@Test
-	public void MockMVCSampleTest() throws Exception {
+@Test
+public void MockMVCSampleTest() throws Exception {
 
-		// use mockMVC to mock the service and run it
-		final MvcResult result = mockMvc
-				.perform(RestDocumentationRequestBuilders.get("/ProveIt").contentType(MediaType.APPLICATION_JSON))
-				.andReturn();
+	// use mockMVC to mock the service and run it
+	final MvcResult result = mockMvc
+			.perform(RestDocumentationRequestBuilders.get("/ProveIt").contentType(MediaType.APPLICATION_JSON))
+			.andReturn();
 
-		// use jackson to convert the json response to an entity
-		final MockMVCProveItEntity entity = mapper.readValue(result.getResponse().getContentAsString(),
-				MockMVCProveItEntity.class);
+	// use jackson to convert the json response to an entity
+	final MockMVCProveItEntity entity = mapper.readValue(result.getResponse().getContentAsString(),
+			MockMVCProveItEntity.class);
 
-		// run hamcrest assertion against the mapped entity
-		assertThat(entity.getValue(), is(55));
-	}
+	// run hamcrest assertion against the mapped entity
+	assertThat(entity.getValue(), is(55));
+}
 ```
